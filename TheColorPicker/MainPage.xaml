@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheColorPicker.MainPage"
+             Title="Content">
+
+    <ContentPage.Resources>
+        <Color x:Key="Primary">#ab3572</Color>
+        <Color x:Key="Secondary">#d4bd83</Color>
+        <Color x:Key="Tertiary">#ccc8be</Color>
+    </ContentPage.Resources>
+
+    <Grid 
+        x:Name="Container">
+        <Frame 
+            Margin="10,0,10,0" 
+            VerticalOptions="Center" 
+            CornerRadius="25">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Center">
+                <Label 
+                    x:Name="AppTitle"
+                    Text="Color Picker" 
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"/>
+                <Label 
+                    Text="Red" 
+                    FontAttributes="Bold"/>
+                <Slider 
+                    x:Name="RedSlider" 
+                    ThumbColor="{StaticResource Primary}"
+                    MinimumTrackColor="{StaticResource Secondary}"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    Minimum="0"
+                    Maximum="255"
+                    Value="0"
+                    ValueChanged="ValueChanged"/>
+                <Label 
+                    Text="Green" 
+                    FontAttributes="Bold"/>
+                <Slider 
+                    x:Name="GreenSlider" 
+                    ThumbColor="{StaticResource Primary}"
+                    MinimumTrackColor="{StaticResource Secondary}"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    Minimum="0"
+                    Maximum="255"
+                    Value="0"
+                    ValueChanged="ValueChanged"/>
+                <Label 
+                    Text="Blue" 
+                    FontAttributes="Bold"/>
+                <Slider 
+                    x:Name="BlueSlider" 
+                    ThumbColor="{StaticResource Primary}"
+                    MinimumTrackColor="{StaticResource Secondary}"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    Minimum="0"
+                    Maximum="255"
+                    Value="0"
+                    ValueChanged="ValueChanged"/>
+                <Frame CornerRadius="25" HorizontalOptions="Center">
+                    <HorizontalStackLayout 
+                        x:Name="CopyFuntionality">
+                        <Label 
+                            x:Name="lblHex"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center"/>
+                        <ImageButton 
+                            Source="copy.svg"
+                            Margin="15,0,0,0"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            VerticalOptions="Center"
+                            Clicked="CopyColorString"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                <Button 
+                    x:Name="RandomColor"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    Text="Generate Random Color"
+                    Clicked="GenerateRandomColor"/>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
